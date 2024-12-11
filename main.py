@@ -8,7 +8,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:5173",
-    "https://ambotamat-ai-frontend-production.up.railway.app/"
+    "https://ambotamat-ai-frontend-production.up.railway.app"
 ]
 
 app.add_middleware(
