@@ -127,9 +127,10 @@ app = FastAPI()
 
 @app.get("/api/v1/extract_data")
 async def execute_run():
+    logger.info("Running the extraction process")
     result = run()
     return result
 
-# if __name__ == "__main__":
-#     port = int(os.environ.get("PORT",8000))
-#     uvicorn.run(app, host="0.0.0.0", port=port)
+if __name__ == "__main__":    
+    port = int(os.environ.get("PORT",8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
