@@ -18,9 +18,9 @@ service_account_json = os.environ.get("SERVICE_ACCOUNT_KEY")
 if service_account_json is None:
     raise ValueError("SERVICE_ACCOUNT_KEY environment variable is not set")
 try:
-    service_account_info = json.loads(service_account_json)
-except json.JSONDecodeError:
-    raise ValueError("SERVICE_ACCOUNT_KEY is not a valid JSON string")
+    service_account_info = json.loads(service_account_json, strict=False)
+except Exception as e:
+    raise ValueError(e)
 def get_data_bq():
     try:
         client = bigquery.Client.from_service_account_info(service_account_info)
