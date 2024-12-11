@@ -56,7 +56,7 @@ def open_ai_call(dataframes):
             # print(content_cleaned)
             try:
                 content_cleaned = json.loads(content_cleaned)
-                print(content_cleaned)
+                logger.info(content_cleaned)
                 result[f'df_{i}'] = content_cleaned
             except Exception as e:
                 logger.error(f"Error occurred during post processing: {e}")
