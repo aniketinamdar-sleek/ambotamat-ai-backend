@@ -62,7 +62,8 @@ def clean_data(dataframes):
         for i in range(1, len(dataframes) + 1):  # Start from 1 to match the keys
             df = dataframes[f'df_{i}']  # Access the DataFrame using string keys
             df = df.drop_duplicates()
-        
+            if 'companyid' in df.columns:
+                df = df.drop(columns=['companyid'])
         # Process each column based on its dtype
             for column in df.columns:
                 if pd.api.types.is_integer_dtype(df[column]):
